@@ -199,6 +199,16 @@
         }
 
         .containerContent {
+            .titleMobile {
+                a {
+                    text-decoration: none;
+                    color: var(--gray-800);
+                    font-family: Lexend, sans-serif;
+                    font-weight: 600;
+                    text-decoration: none;
+                    line-height: 1.4rem;
+                }
+            }
             .contentMobile {
                 span {
                     &:last-child {
