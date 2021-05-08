@@ -3,6 +3,18 @@
     height: calc( 100vh - 6.5rem );
     overflow-y: scroll;
 
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--gray-200);
+        border-radius: 10px;
+        transition: all 300ms;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--purple-300);
+    }
+
     h2 {
         margin-top: 3rem;
         margin-bottom: 1.5rem;
@@ -167,6 +179,49 @@
             }
         }
     }
+    .containerMobile {
+        display: flex;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--gray-100);
+
+        .button {
+            width: 10%;
+            height: auto;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            button {
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 1rem;
+                border: 1px solid var(--gray-100);
+            }
+        }
+
+        .containerContent {
+            .contentMobile {
+                span {
+                    &:last-child {
+                        margin-left: 0.5rem;
+                        padding-left: 0.5rem;
+                        position: relative;
+                        
+                        &::before {
+                            content: '';
+                            width: 4px;
+                            height: 4px;
+                            border-radius: 2px;
+                            background: #DDD;
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 1366px) {
@@ -194,6 +249,14 @@
     }
 }
 
+@media (max-width: 768px) {
+    .latestEpisodes {
+        ul {
+            display: inline;
+        }
+    }
+}    
+
 @media (max-width: 650px) {
     .homepage {
         padding: 0 1rem;
@@ -201,17 +264,14 @@
         width: 100%;
     }
     .latestEpisodes {
-        max-width: 90%;
+        max-width: 100%;
         ul {
-            grid-template-columns: 1fr;
             li {
-                box-sizing: border-box;
-                width: 100%;
+                &:first-child {
+                    margin-bottom: 1.5rem;
+                }
                 .imageThumb {
                     display: none;
-                }
-                a {
-                    max-width: 90%;
                 }
             }
         }
